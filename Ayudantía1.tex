@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\input{compaq.tex}
+
+%\renewcommand{\P}[1]{P\left(#1\right)}
+
+\title{Elementos de probabilidad y estadística. Ayudantía 1.}
+\date{2 de febrero de 2024}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{enumerate}
+    \item Sean $E, F, G$. Encuentra expresiones en términos de $E,F$ y $G$ 
+    para los siguientes eventos,
+    \begin{enumerate}
+        \item sólo $F$ ocurre,
+        \item tanto $E$ como $F$ ocurren, pero no $G$,
+        \item por lo menos uno de los eventos ocurre,
+        \item por lo menos dos eventos ocurren,
+        \item los tres eventos ocurren,
+        \item ningún evento ocurre,
+        \item ocurre a lo sumo un evento,
+        \item a lo sumo ocurren dos eventos.
+    \end{enumerate}
+
+    \item Una caja contiene tres canicas: una roja, una verde y una azul. Considera un
+    experimento que consiste en tomar una canica de la caja, volverla a meter y tomar 
+    otra canica de la caja. 
+    
+    \begin{enumerate}
+        \item ¿Cuál es el espacio muestral? 
+        \item Si en todo momento, cada canica tiene la misma probabilidad de ser 
+        seleccionada, ¿cuál es la probabilidad de cada elemento en el espacio muestral?
+    \end{enumerate}
+
+    \item En el contexto del ejercicio anterior, ¿cómo cambian las respuestas cuando
+    la primera canica que se toma no es devuelta a la caja?
+
+    \item (Desigualdad de Bonferroni) Si $\P{E}=0.9$ y $\P{F}=0.8$, muestra que $\P{E\cap F}\ge 0.7$.
+    En general, muestra que 
+            
+            \[ \P{E\cap F} \ge \P{E} + \P{F} - 1. \] 
+
+    
+    \item Prueba la siguiente desigualdad
+    
+            \[ \P{\bigcup_{i=1}^n A_i} \ge \sum_{i=1}^n \P{A_i} - n + 1 \]
+
+    
+    \item (Desigualdad de Boole) Muestra que
+    
+            \[ \P{\bigcup_{i=1}^n E_i} \le \sum_{i=1}^n \P{E_i}. \]
+
+    \item Sean $E$ y $F$ dos eventos disjuntos ($E\cap F = \emptyset$) en el espacio 
+    muestral de un experimento. Suponga que el experimento se repite hasta que ocurra
+    alguno de $E$ o $F$. ¿Cuál es el espacio muestral de este nuevo experimento?
+
+    \item Una moneda es lanzada hasta que aparecen dos caras seguidas. ¿Cuál es el 
+    espacio muestral del experimento? Si la moneda es justa (la probabilidad de 
+    ver una cara es $1/2$ al igual que la de ver un sol), ¿cuál es la probabilidad de
+    que la moneda será lanzada exactamente cuatro veces?
+
+    
+\end{enumerate}
+
+
+
+
+\end{document}
