@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\input{compaq.tex}
+
+\renewcommand{\P}[1]{P\left(#1\right)}
+
+\title{Elementos de probabilidad y estadística. Ayudantía 3.}
+\date{16 de Febrero de 2024}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+    \item[2.] En una clase de 10 alumnos van a distribuirse 3 premios. Averiguar de cuántos modos
+    puede hacerse si:
+
+    \begin{enumerate}
+        \item los premios son diferentes.
+        \item los premios son iguales.
+    \end{enumerate}
+
+    (Notar que existen dos casos; que una persona pueda recibir más de un premio o que no pueda)
+
+    \begin{proof}[Solución al caso de premios iguales cuando una persona puede recibir más de un premio.]
+
+        Parece intuitivo pensar en el siguiente razonamiento:
+        \begin{quote}
+            Como se asignan tres premios a 10 personas y se puede repetir asignación, la cantidad total de formas de hacer esto es $10\times 10 \times 10$. Para cada una de las asignaciones anteriores, tenemos $3!$ ordenamientos y como no nos importa el orden, necesitamos dividir $10^3$ entre $3!$. Con lo anterior, nuestra solución es 
+
+            \[ \frac{10^3}{3!}.\]
+        \end{quote}
+    
+    Se puede notar que el razonamiento es falso porque $10^3/3!$ no es un número entero. El error está en pensar que todas las asignaciones de tres premios aparecen $3!$ veces. Por ejemplo, si asignamos a cada alumno un número del 0 al 9, entonces la asignación $(1,2,3)$ sí aparece $3!$ veces, pues es equivalente a las asignaciones
+
+    \begin{align*}
+        (1,3,2),\\
+        (2,1,3),\\
+        (2,3,1),\\
+        (3,1,2),\\
+        (3,2,1).\\
+    \end{align*}
+
+    Pero la asignación $(1,1,1)$ aparece una única vez en nuestro conteo. Al dividir el número total de asignaciones distintas entre $3!$ estamos subestimando la cantidad total de formas de asignar el premio. Lo correcto sería dividir entre $3!$ la cantidad de aquellas asignaciones que aparezcan $3!$ veces, y las demás entre la cantidad de veces que aparecen repetidas.
+
+    Notemos que si no se repite un número en la asignación, entonces está aparecerá $3!$ veces, pero si se repite únicamente uno, esta aparecerá tres veces, que son
+
+    \begin{align*}
+        (a,b,a),\\
+        (b,a,a),\\
+        (a,a,b).
+    \end{align*}
+
+    Las asignaciones con un mismo número repetido tres veces aparecen una sola vez en nuestro conteo. 
+    
+    Ahora debemos contar cuántas asignaciones de cada tipo tenemos. Si los tres dígitos son distintos, la cantidad de asignaciones posibles es $10\times 9\times 8$. Si los tres son iguales, solo hay una asignación posible, entonces hay 10 de este tipo. Si dos dígitos son iguales tenemos que, dependiendo de qué dígito caiga en cada casilla. Cuando el acomodo es del tipo $(a,b,a)$, podemos elegir cualquiera de los 10 dígitos para la primera posición, tenemos 9 posibilidades para la segunda y solo una para la tercera, entonces hay $10\times9\times1$ formas de obtener un acomodo de este tipo. Por simetría, lo mismo se cumple para las otras dos formas de tener dos dígitos iguales. Concluimos que hay en total $10\times9\times3$ asignaciones distintas con dos dígitos repetidos.
+
+    Podemos comprobar que de esta forma agotamos todas las asignaciones posibles de 10 dígitos en tres posiciones
+
+    \[ 10\times9\times8 + 10\times9\times 3 + 10 = 10( 72 + 27 + 1 ) = 10^3. \]
+
+    Al dividir entre la cantidad de veces que aparece cada asignación y sumar, obtenemos la solución al problema
+
+    \[ \frac{10(9)8}{3!} + \frac{10(9)3}{3} + 10 = 10(3)4 + 10(9) + 10 = 220. \]
+
+    Esta solución coincide con la que se obtiene usando los principios de conteo de suma y de multiplicación.
+
+        
+    \end{proof}
+
+    Pueden discutir otras formas de resolver esto con sus compañeros. 
+    
+    
+\end{enumerate}
+
+
+
+
+\end{document}
