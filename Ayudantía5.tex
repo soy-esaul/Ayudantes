@@ -21,6 +21,22 @@ Resuelve individualmente cada uno de los ejercicios usando los temas revisados e
 
     \item Irving, Samuel y Esaul lanzan una moneda, si el resultado de una de las personas es distinto del de las otras dos, el juego termina y esta persona gana. Si los tres obtienen lo mismo, cada quien vuelve a lanzar su moneda. Suponiendo que la moneda es justa, ¿cuál es la probabilidad de que el juego termine con la primera ronda de lanzamientos? Si las tres monedas están sesgadas y tienen $1/4$ de probabilidad de resultar en cara, ¿cuál es la probabilidad de que el juego termine con la primera ronda?
     
+    \begin{proof}[Solución]
+        El juego termina en la primera ronda si el lanzamiento de una de las personas es distinto de los de las otras dos. En este caso es más sencillo encontrar la probabilidad del complemento. Sea $F$ el evento ``El juego termina en la primera ronda de lanzamientos'', y los eventos $C_3, S_3$ ``Los lanzamientos de las tres personas son cara'' y ``Los lanzamientos de las tres personas son sol''. Suponiendo que la moneda es justa,
+
+        \begin{align*}
+            \P{ F } &= 1 - \P{F^c} = 1 - \left( \P{C_3} + \P{S_3}  \right),\\
+            &= 1 - \left[ \left(\frac12\right)^3 + \left(\frac12\right)^3 \right] = 1 - \frac28  = \frac34.
+        \end{align*}
+
+        Si suponemos la moneda sesgada,
+
+        \begin{align*}
+            \P{ F } &= 1 - \P{F^c} = 1 - \left( \P{C_3} + \P{S_3}  \right),\\
+            &= 1 - \left[ \left(\frac14\right)^3 + \left(\frac34\right)^3 \right] = 1 - \frac{28}{64} = \frac{9}{16}.
+        \end{align*}
+    \end{proof}
+    
     \item Supón que hay $n$ personas en una fiesta, todos usando sombrero. En un momento dado, todos tiran su sombrero al centro del salón y cada quien toma un sombrero al azar. Muestra que la probabilidad de que nadie se quede con su propio sombrero es
     
     \[ \frac{1}{2!} - \frac{1}{3!} + \frac1{4!} + \cdots + \frac{(-1)^n}{n!}. \]
@@ -36,6 +52,53 @@ Resuelve individualmente cada uno de los ejercicios usando los temas revisados e
         \item un poker
         \item una quintilla.
     \end{enumerate}
+
+
+    \begin{proof}[Solución]
+        Vamos a entender a la jugada de cada inciso como la de obtener esa mano como mejor jugada, i.e., la probabilidad de obtener un par será la de obtener ese par y nada mejor. 
+
+El espacio muestral se puede abstraer de la siguiente forma
+
+\begin{equation*}
+    \Omega=\{(\omega_1,\dots,\omega_5)\ :\ \omega_i\in\{9,10,J,Q,K,A\},i=1,2,\dots,5\}
+\end{equation*}
+
+Aquí $\omega_i$ representa el resultado del dado $i$ por lo que consideramos las realizaciones del experimento de forma ordenada. Es claro que para el fin de formar las manos no importa el orden. Como cada realización la consideramos equiprobable, para calcular las probabilidad de un evento $A\subset \Omega$ tenemos que dividir su cardinalidad por el número de elementos en $\Omega$, en cuyo cociente se quitarían las manos de póker repetidas.
+
+La cardinalidad del espacio muestral es $|\Omega|=6^5$.
+
+Con esto en mente calcularemos las probabilidades solicitadas
+
+\begin{enumerate}
+    \item Sea $A_1=\{\text{un par y no mejor}\}$. Observamos que hay $6$ posibilidades para nombrar al par, i.e. par de $9$ por ejemplo. Además, hay $\binom{5}{2}$ formas de elegir los dados en los que salió el par. Para los resultados de los dados restantes, como buscamos que la mano sea un par y no mejor se tienen $5\cdot 4\cdot 3$ posibilidades para los dados restantes. 
+    
+    Por lo tanto 
+
+    \[\P{A_1}=\frac{10\cdot 6\cdot 5\cdot 4\cdot 3}{6^5}=\frac{25}{54}.\]
+    
+    \item Sea $A_2=\{\text{dos pares y no mejor}\}$. Notamos se tienen $\binom{6}{2}=15$ posibilidades para nombrar los dos pares. Además, se tienen $\binom{5}{2}\cdot\binom{3}{2}=30$ formas de colocar los resultados de los dos pares en los dados. Para el dado restante, como debe ser nada mejor se tienen $4$ posibles resultados, por lo que 
+    
+    \[\P{A_2}=\frac{15\cdot 30\cdot 4}{6^5}=\frac{25}{108}.\]
+    
+    \item Sea $A_3=\{\text{una tercia y no mejor}\}$. De manera similar, tenemos $6$ posibilidades para nombrar a la tercia y hay $\binom{5}{3}$ formas de colocar la tercia en los dados correspondientes. Finalmente, como no podemos tener nada mejor, se tienen $5\cdot 4$ posibilidades para los dados restantes, tenemos así
+    
+    \[\P{A_3}=\frac{10\cdot 6\cdot 5\cdot 4}{6^5}=\frac{25}{162}.\]
+    
+    \item Ahora, sea $A_4=\{\text{un full y nada mejor}\}$. Notamos que tenemos $6\cdot 5=30$ formas de nombrar el full, es decir, el palo correspondiente a la tercia y luego el correspondiente al par. Por otro lado, hay $\binom{5}{3}=10$ formas de que hay salido la tercia en los cinco dados, y como los otros dados conforman al par su posición queda determinada de la posición de los dados que conforman a la tercia, así
+    
+    \[\P{A_4}=\frac{30\cdot 10}{6^5}=\frac{25}{648}.\]
+    
+    \item Sea $A_5=\{\text{póker y nada mejor}\}$. Aquí hay $6$ posibilidades para nombrar al póker, es decir, el palo del dado que se repite cuatro veces. Además, hay $\binom{5}{4}=5$ formas de distribuir esos cuatro dados que se repiten en los dados. Notamos que para el dado restante hay $5$ posibles palos, por lo que
+    
+    \[\P{A_5}=\frac{6\cdot 5\cdot 5}{6^5}=\frac{25}{1296}.\]
+    
+    \item Finalmente, sea $A_6=\{\text{quintilla y nada mejor}\}$. Observamos que hay $6$ posibilidades para nombrar la quintilla, el palo que se repetirá cinco veces. Sólo hay una posibilidad para la configuración de los dados en la quintilla, por lo cual
+    
+    \[\P{A_6}=\frac{6}{6^5}=\frac{1}{1296}.\]
+    
+\end{enumerate}
+
+    \end{proof}
 
     \item En una clase de 10 alumnos van a distribuirse 3 premios. Averiguar de cuántos modos puede hacerse si:
 
