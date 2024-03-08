@@ -43,6 +43,46 @@ Resuelve individualmente cada uno de los ejercicios usando los temas revisados e
 
     \textbf{Bonus:} ¿A dónde converge esta probabilidad cuando $n\to\infty$?
 
+    \begin{proof}[Solución]
+        Definamos a $E_i$ como el evento en que la $i$-ésima persona toma su propio sombrero y $N$ el evento en que nadie toma su propio sombrero, entonces
+
+        \begin{align*}
+            \P{N} &= 1 - \P{E_1 \cup E_2 \cup \cdots \cup E_n},\\
+            \intertext{por el principio de inclusión-exclusión,}
+            &= 1 - \left[ \sum_{i_1} \P{E_{i_1}} - \sum_{i_1 < i_2} \P{E_{i_1}\cap E_{i_2}} + \cdots + (-1)^{n+1}\P{E_1\cap E_2 \cap \cdots \cap E_n} \right],\\
+            &= 1 - \sum_{i_1} \P{E_{i_1}} + \sum_{i_1 < i_2} \P{E_{i_1}\cap E_{i_2}} - \cdots + (-1)^{n}\P{E_1\cap E_2 \cap \cdots \cap E_n}.
+        \end{align*}
+
+        Sea $k$ tal que $1 \le k \le n$, entonces 
+
+        \[\P{E_{i_1}\cap E_{i_2} \cap \cdots \cap E_{i_k}},\]
+
+        es la probabilidad de que $k$ personas en específico hayan elegido su propio sombrero  ($(n-k)!$), dividido entre la cantidad total de maneras de asignar los sombreros ($n!$). La cantidad de términos en la suma sobre los índices $i_1 < i_2 < \dots < i_k$ es la manera de elegir $k$ índices de un total de $n$ posibles, es decir $\binom nk$. De aquí se sigue
+
+        \begin{align*}
+            \sum_{i_1 < i_2 < \dots < i_k} \P{E_{i_1}\cap E_{i_2} \cap \cdots \cap E_{i_k}} &= \binom nk \frac{(n-k)!}{n!} = \frac{n!(n-k)!}{(n-k)!k!n!} = \frac{1}{k!}.
+        \end{align*}
+
+        Al sustitutir este resultado en la expresión obtenida anteriormente para $\P{N}$ tenemos,
+
+        \begin{align*}
+            \P{N} &= 1 - \frac{1}{1!} + \frac{1}{2!} - \frac1{3!} + \cdots + (-1)^n \frac{1}{n!},\\
+            &= \frac{1}{2!} - \frac1{3!} + \cdots + (-1)^n \frac{1}{n!}
+        \end{align*}
+
+        \textbf{Bonus:} El desarrollo en serie de potencias para la función $e^x$ es,
+
+        \[ e^x = \sum_{m=0}^\infty \frac{x^m}{m!}. \]
+
+        Al hacer $n\to\infty$ en la expresión que tenemos para $\P{N}$, encontramos que 
+
+        \begin{equation*}
+            \lim_{n\to\infty} \P{N} = \lim_{n\to\infty} \sum_{m=0}^n \frac{(-1)^m}{m!} = \sum_{m=0}^\infty \frac{(-1)^m}{m!} = e^{-1}.
+        \end{equation*}
+        
+
+    \end{proof}
+
     \item Consideremos el juego del cubilete, i.e. 5 dados cuyas caras tienen las etiquetas 9,10,J,Q,K,A. Calcule las probabilidades (sólo deje las expresiones en términos de factoriales)
     \begin{enumerate}
         \item de obtener un par
@@ -109,6 +149,8 @@ Con esto en mente calcularemos las probabilidades solicitadas
 
     (Notar que existen dos casos; que una persona pueda recibir más de un premio o que no pueda)
 
+    La solución de este problema se había compartido en una ayudantía pasada.
+
 
 
     \item \textbf{Falsos positivos en un test de VIH}: Cierta prueba de anticuerpos para la infección de VIH se cree que es precisa por arriba del $99\%$. Esto significa que una prueba realizada será correcta con probabilidad de al menos 0.99, y estará equivocada con probabilidad no mayor a 0.01. 
@@ -116,6 +158,34 @@ Con esto en mente calcularemos las probabilidades solicitadas
     Hay dos tipos de error que pueden ocurrir en la prueba: puede indicar que una persona no infectada tiene VIH (falso positivo), o puede indicar que una persona infectada no tiene VIH (falso negativo). Supongamos que el error es de exactamente $1\%$ tanto para falsos positivos como para falsos negativos.
     
     La prevalencia del VIH en Canadá en 2005 fue de aproximadamente 2 infectados por cada 1000 personas en la población\footnote[1]{Screening for HIV: A Review of the Evidence for the U.S. Preventive Services Tsk Force, Chou et al., Annals of Internal Medicine, July 5, 2005, col. 143, no. 1, 55-73}. Una persona es elegida de manera aleatoria de la población. Dicha persona es analizada con la prueba y esta resulta positiva. ¿Cuál es la probabilidad de que esta persona en realidad NO esté infectada?
+
+
+    \begin{proof}[Soluci\'on]
+        Sean $I$ el evento ''la persona est\'a infectada'' y $N$ el evento ''la prueba es negativa''. Notemos que $I^C$ es el evento ''la persona no est\'a infectada'' y $N^C$ el evento ''la prueba es positiva''. De los datos del problema tenemos que
+        \[
+            \P{I} = \frac{2}{1000}, \qquad \P{N^C | I^C} = \frac{1}{100}, \qquad \P{N | I} = \frac{1}{100}.
+        \]
+        As\'i, $\P{I^C} = \frac{998}{1000}$.
+
+        Ahora, puesto que $N \cap I$ y $N^C \cap I$ son eventos disjuntos, tenemos que
+        \[
+            \P{N | I} + \P{N^C | I} = \frac{\P{N \cap I} + \P{N^C \cap I}}{\P{I}} = \frac{\P{I}}{\P{I}} = 1.
+        \]
+        As\'i, $\P{N^C | I} = 1 - \P{N | I} = \frac{99}{100}$.
+
+        Luego, por la ley de probabilidad total, encontramos que
+        \[
+            \P{N^C} = \P{N^C | I}\P{I} + \P{N^C | I^C}\P{I^C} = \frac{99}{100}\cdot \frac{2}{1000} + \frac{1}{100}\cdot \frac{998}{1000} = \frac{1196}{100000}.
+        \]
+
+        Por lo tanto, por el Teorema de Bayes,
+        \[
+            \P{I^C | N^C} = \frac{\P{I^C}\P{N^C | I^C}}{\P{N^C}} = \frac{\frac{998}{1000}\cdot \frac{1}{100}}{\frac{1196}{100000}} = \frac{998}{1196}.
+        \]
+        Esto es, la probabilidad de que la persona no est\'e infectada dada que la prueba es positiva es de $\frac{998}{1196}$ que es aproximadamente 0.834.
+        
+    \end{proof}
+
 \end{enumerate}
 
 
