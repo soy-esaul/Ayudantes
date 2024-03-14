@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\input{compaq.tex}
+
+\renewcommand{\P}[1]{P\left(#1\right)}
+
+\title{Elementos de probabilidad y estadística. Ayudantía 5.}
+\date{14 de marzo de 2024}
+
+
+
+\begin{document}
+
+\maketitle 
+
+\begin{enumerate}
+
+    \item Sea $X$ una variable aleatoria constante y $X \equiv 3/2$. Encuentra su función de masas de probabilidad función de distribución.
+
+    \item Sea $U$ una variable aleatoria uniforme en $[0,1]$. Sea $X = U^2$. Encuentra la función de distribución de $X$.
+    
+    \item Sea $X$ una variable aleatoria con función de distribución 
+    
+    \[ F(x) = \left\{ \begin{array}{cc}
+        0   & x < 0,\\
+        x^2 & 0 \le x \le 1,\\
+        1   & x > 1.
+    \end{array} \right. \]
+
+    Encuentra $\P{1/4 < X < 5}$, $\P{.2 < X < .8}$ y $\P{X = 1/2}$.
+
+    \item Se lanza una moneda justa tres veces. Sea $X$ la variable aleatoria dada por el número de soles menos el número de águilas. Encuentra la función de distribución de $X$.
+    
+    \item ¿Cuáles de las siguientes son funciones de distribución?
+    
+    \begin{enumerate}
+        \item $F(x) = \mathds{1}_{(2,\infty)}(x)$.
+        \item $F(x) = \frac{x^2}{1 + x^2}$.
+    \end{enumerate}
+
+    \item Cinco hombres y cinco mujeres llegan aleatoriamente a un concierto y se forman en la taquilla, luego se les asignan números del 1 al 10 de acuerdo con su lugar en la fila. Sea $X$ la posición de la primera mujer en la fila. Encuentra la distribución de $X$.
+    
+    
+    \item Sean $A$ y $B$ conjuntos y $f$ una función. Muestra que la imagen inversa $f^{-1}$ conserva operaciones de conjuntos, es decir $f^{-1}(A^c) = f^{-1}(A)^c$, $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$, $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$.
+    
+    \item Una función de distribución se llama puramente discontinua si es igual a la suma de sus saltos, es decir $F(x) = \sum_{y\le x}(F(y)-F(y-))$ para todo $x$.
+    
+    Muestra que cualquier función de distribución puede ser escrita como $F=aF_c + (1-a)F_d$, donde $F_c$ y $F_d$ son funciones de distribución continua y puramente discontinua, respectivamente, y $0\le a \le 1$.
+
+    \item Demuestra lo siguiente.
+    
+    \begin{enumerate}
+        \item Una función de distribución $F$ es puramente discontinua si y sólo si $\sum_y (F(y) - F(y-)) = 1$.
+        \item La función de distribución de una variable aleatoria discreta es puramente discontinua.
+    \end{enumerate}
+
+    \item Sea $\{ X_j \}_{j\ge 1}$ una sucesión de variables aleatorias.
+    
+    \begin{enumerate}
+        \item Muestra que $\sup_n X_n$ e $\inf_n X_n$ son variables aleatorias.
+        \item Muestra que $\{\omega : \lim_{n\to\infty} X_n\text{ existe }\} \in \mathscr F$.
+    \end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+\end{document}
