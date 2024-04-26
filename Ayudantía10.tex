@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\input{compaq.tex}
+
+\renewcommand{\P}[1]{P\left(#1\right)}
+
+\title{Elementos de probabilidad y estadística. Ayudantía 10.}
+\date{Abril de 2024}
+
+
+
+\begin{document}
+
+\maketitle 
+
+\begin{enumerate}
+
+    \item Una función de probabilidad conjunta está dada por $p_{0,0} = a, p_{0,1} = b, p_{1,0} = c, p_{1,1} = d$, donde necesariamente $a + b + c + d = 1$. Demuestre que una condición necesaria para que haya independencia es que $ad = bc$.
+    
+    \item Considere dos eventos $A$ y $B$ tales que $P (A) = 1/4, P (B|A) = 1/2$ y $P (A|B) = 1/4$. Definimos las variables $X$
+    y $Y$ por $X = \mathds 1_A$, $Y = \mathds1_B$ , donde $\mathds1_E (x)$ vale 1 si $x \in E$ y vale 0 si $x \notin E$. Diga si las siguientes proposiciones son ciertas o falsas.
+
+    \begin{enumerate}
+        \item  Las variables aleatorias $X$ y $Y$ son independientes.
+        \item $P (X^2 + Y^2 = 1) = 1/4$.
+        \item $P (XY = X^2Y^2) = 1$.
+        \item La variable aleatoria $X$ tiene distribución uniforme en el intervalo $(0, 1)$.
+        \item Las variables $X$ y $Y$ tienen la misma distribución.
+    \end{enumerate}
+
+
+    \item Sean $X, Y$ variables aleatorias con valores en $\{1, 2, \dots , n\}$ y función de probabilidad conjunta $p_{ij} = 1/n^2$. Halle     las funciones de probabilidad marginales y determine si las variables son independientes. Calcule $P (X > Y )$ y    $P (X = Y )$.
+    
+    \item Lanzamos una moneda tres veces y definimos las siguientes variables aleatorias: $X$ es el número de águilas, $Y$ es    la longitud de la mayor sucesión de águilas en la muestra. Por ejemplo $Y (A, S, A) = 1$, $Y (A, A, S) = 2$. Halle la distribución conjunta, las distribuciones marginales y determine si estas variables son independientes.
+    
+    \item Sean $X,Y$ variables aleatorias discreto con función de probabilidad conjunta como indica la tabla de abajo. Encuentre y grafique la correspondiente
+    función de distribución conjunta.
+
+    \item  Sean $X$ y $Y$ dos variables aleatorias, y sean $x$ y $y$ cualesquiera números    reales. Diga falso o verdadero. Demuestre en cada caso.
+    \begin{enumerate}
+        \item  $P (X > x, Y > y) = 1 - P (X \le x, Y \le y)$.
+        \item  $P (X \le x, Y \le y) \le P (X \le x)$.
+        \item  $P (X \le x) = P (X \le x, Y \le x) + P (X \le x, Y > x)$.
+        \item  $P (X + Y \le x) \le P (X \le x)$.
+        \item  $P (XY < 0) \le P (X < 0)$.
+    \end{enumerate}
+   
+
+\end{enumerate}
+
+
+
+
+
+\end{document}
