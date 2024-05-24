@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\input{compaq.tex}
+
+\renewcommand{\P}[1]{P\left(#1\right)}
+
+\title{Elementos de probabilidad y estadística. Ayudantía 13.}
+\date{Mayo de 2024}
+
+
+
+\begin{document}
+
+\maketitle 
+
+\begin{enumerate}
+
+    \item Sea $X$ una variable aleatoria positiva con función de distribución $F$. Muestra que
+    
+    \begin{equation*}
+        \E{ X } = \int_0^\infty (1- F(x)) \d x.
+    \end{equation*}
+    
+    \item Sean $\lambda$ y $p$ constantes positivas. Pruebe la desigualdad de Chebyshev,
+    
+    \begin{equation*}
+        \P{\abs{X} \ge \lambda} \le \frac1{\lambda^p} \E{ \abs{X}^p }.
+    \end{equation*}
+
+    \item Sea $Y$ una variable aleatoria con distribución $N(0,1)$ y $\xi$ una variable aleatoria tal que $\P{\xi=1} = \P{\xi=-1} = \frac12$. Define a $X$ como $X \coloneqq \xi Y$. Muestra que $X$ y $Y$ son no correlacionadas, pero no son independientes.
+    
+    \item Calcule la esperanza de $X$ cuya función de densidad es $f(x) = \abs{x}$ para $x \in [-1,1]$.
+    
+    \item Demuestre que no existe la esperanza de $X$ cuando su función de masas es 
+    
+    \begin{equation*}
+        f(k) = \frac{3}{\pi^2 x^2}.
+    \end{equation*}
+
+    \item La paradoja de San Petersburgo. Un juego consiste en lanzar una moneda equilibrada repetidas veces hasta que una de las caras, seleccionada previamente, aparezca por primera vez. Si un jugador lanza la moneda y requiere de $n$ lanzamientos para que se cumpla la condición, entonces recibe $2n$ unidades monetarias. ¿Cuál debe ser el pago inicial justo para ingresar a este juego?
+    
+    \item (Densidad Gamma). Sea $\gamma$ una variable aleatoria con densidad,
+    
+    \begin{equation*}
+        f_\gamma(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}.
+    \end{equation*}
+
+    \noindent para $\alpha,\beta \ge 0$ y $\Gamma(x+1) = x\Gamma(x)$. Calcule $\E{\gamma}$.
+
+\end{enumerate}
+
+
+
+
+
+\end{document}
